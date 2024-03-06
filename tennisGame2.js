@@ -1,13 +1,26 @@
-var TennisGame2 = function(player1Name, player2Name) {
-    this.P1point = 0;
-    this.P2point = 0;
+// var TennisGame2 = function(player1Name, player2Name) {
+//     this.P1point = 0;
+//     this.P2point = 0;
 
-    this.P1res = "";
-    this.P2res = "";
+//     this.P1res = "";
+//     this.P2res = "";
 
+//     this.player1Name = player1Name;
+//     this.player2Name = player2Name;
+// };
+
+
+// refactor the TennisGame2 function to a cons instead of var
+// delete P1res and P2res, instead create an array to hold the values assigned to the score variable
+const TennisGame2 = function(player1Name, player2Name) {
     this.player1Name = player1Name;
     this.player2Name = player2Name;
+    this.P1point = 0;
+    this.P2point = 0;
+    this.scoreLabels = ["Love", "Fifteen", "Thirty", "Forty"];
 };
+
+
 
 TennisGame2.prototype.getScore = function() {
     var score = "";
