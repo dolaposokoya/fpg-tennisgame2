@@ -101,7 +101,8 @@ const TennisGame2 = function(player1Name, player2Name) {
 
 // first refactor the all the if statements and nested if to a more readable code
 // most of the lines are written twice, by converting the variables to an array we're able to eliminate a lot of lines of codes
-TennisGame2.prototype.getScore = function() {
+
+TennisGame2.prototype.getScore = function () {
     let score = "";
     if (this.P1point === this.P2point) {
         if (this.P1point < 3) {
@@ -122,33 +123,52 @@ TennisGame2.prototype.getScore = function() {
     return score;
 };
 
-TennisGame2.prototype.SetP1Score = function(number) {
-    var i;
-    for (i = 0; i < number; i++) {
-        this.P1Score();
+// TennisGame2.prototype.SetP1Score = function(number) {
+//     var i;
+//     for (i = 0; i < number; i++) {
+//         this.P1Score();
+//     }
+// };
+
+// TennisGame2.prototype.SetP2Score = function(number) {
+//     var i;
+//     for (i = 0; i < number; i++) {
+//         this.P2Score();
+//     }
+// };
+
+// in this function, the two functions SetP1Score and SetP2Score are consolidated into one by adding an extra paramater for player name
+// and the wonPoint function is called
+TennisGame2.prototype.setPlayerScore = function(player, number) {
+    // Set the score for the specified player based on the number of points won
+    for (let i = 0; i < number; i++) {
+        this.wonPoint(player);
     }
 };
 
-TennisGame2.prototype.SetP2Score = function(number) {
-    var i;
-    for (i = 0; i < number; i++) {
-        this.P2Score();
-    }
-};
+// TennisGame2.prototype.P1Score = function() {
+//     this.P1point++;
+// };
 
-TennisGame2.prototype.P1Score = function() {
-    this.P1point++;
-};
+// TennisGame2.prototype.P2Score = function() {
+//     this.P2point++;
+// };
 
-TennisGame2.prototype.P2Score = function() {
-    this.P2point++;
-};
 
+// TennisGame2.prototype.wonPoint = function(player) {
+//     if (player === "player1")
+//         this.P1Score();
+//     else
+//         this.P2Score();
+// };
+
+
+// this function here performs to actions
+// 1) setting the value of P1point and P2point
+// 2) it also check the type of player currently playing using the ternary operator
+// the P2Score and P1Scroe are now redundant function
 TennisGame2.prototype.wonPoint = function(player) {
-    if (player === "player1")
-        this.P1Score();
-    else
-        this.P2Score();
+    player === "player1" ? this.P1point++ : this.P2point++;
 };
 
 if (typeof window === "undefined") {
