@@ -12,7 +12,7 @@
 
 // refactor the TennisGame2 function to a const instead of var
 // delete P1res and P2res, instead create an array to hold the values assigned to the score variable
-const TennisGame2 = function(player1Name, player2Name) {
+var TennisGame2 = function(player1Name, player2Name) {
     this.player1Name = player1Name;
     this.player2Name = player2Name;
     this.P1point = 0;
